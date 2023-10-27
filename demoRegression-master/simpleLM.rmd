@@ -30,3 +30,90 @@ summary.lm(simp)
 
 ## Compare all models that predict LENGTH other than NECK. Then order them from worst to best by its value of Adjusted-Rsquared (bigger is better), or by RSE (residual standard error) where smaller is better. 
 
+```{r}
+simp <- lm(LENGTH~CHEST,data=bears)
+plot(LENGTH~NECK,data=bears)
+abline(simp)
+summary.lm(simp)
+```
+
+
+Residual standard error: 4.939 on 52 degrees of freedom 72 Multiple R-squared:0.791, Adjusted R-squared:0.7869.
+ 
+
+```{r}
+simp <- lm(LENGTH~NECK,data=bears)
+plot(LENGTH~NECK,data=bears)
+abline(simp)
+summary.lm(simp)
+```
+
+
+Residual standard error: 5.376 on 52 degrees of freedom, Adjusted R-squared: 0.7476
+
+
+```{r}
+headlen <- lm(LENGTH~HEADLEN,data=bears)
+plot(LENGTH~HEADLEN,data=bears)
+abline(headlen)
+summary.lm(headlen)
+```
+
+Residual standard error: 4.235 on 52 degrees of freedom,75 Adjusted R-squared:0.8434
+
+
+```{r}
+width <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(width)
+summary.lm(width)
+```
+
+Residual standard error: 7.32 on 52 degrees of freedom, Adjusted R-squared: 0.5321
+
+
+```{r}
+age <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(age)
+summary.lm(age)
+```
+
+
+Residual standard error: 7.5 on 52 degrees of freedom, Adjusted R-Squared: 0.50.
+
+
+
+```{r}
+weight <- lm(LENGTH~WEIGHT,data=bears)
+plot(LENGTH~WEIGHT,data=bears)
+abline(weight)
+summary.lm(weight)
+```
+
+Residual standard error: 5.4 on 52 degrees of freedom, Adjusted R-squared: 0.7.  
+
+
+
+
+The order from worst to best of the different variables correlated to the length of a bear by their residual standard error and their adjusted R-squared
+
+1. LENGTH~AGE: Residual standard error: 7.5 on 52 degrees of freedom, Adjusted R-Squared: 0.50
+
+2. LENGTH~HEADWTH: Residual standard error: 7.32 on 52 degrees of freedom, Adjusted R-squared: 0.5321
+
+3. LENGTH~WEIGHT: Residual standard error: 5.4 on 52 degrees of freedom, Adjusted R-squared: 0.7
+
+4. LENGTH~NECK: Residual standard error: 5.376 on 52 degrees of freedom, Adjusted R-squared: 0.7476
+
+5. LENGTH~CHEST: Residual standard error: 4.939 on 52 degrees of freedom 72 Multiple R-squared:0.791,Adjusted R-squared:0.7869
+
+6. LENGTH-HEADLEN: Residual standard error: 4.235 on 52 degrees of freedom,75 Adjusted R-squared:0.8434
+
+
+
+
+
+
+
+
